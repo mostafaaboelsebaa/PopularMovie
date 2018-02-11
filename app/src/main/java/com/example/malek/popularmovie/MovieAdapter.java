@@ -39,7 +39,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.Viewholder> 
     public void onBindViewHolder(Viewholder holder, int position) {
         Movie movie = movies.get(position);
 
-        Picasso.with(context).load("http://image.tmdb.org/t/p/w185"+ movie.getPoster()).placeholder(R.drawable.placeholder).into(holder.imageView);
+        Picasso.with(context)
+                .load("http://image.tmdb.org/t/p/w185"+ movie.getPoster())
+                .placeholder(R.drawable.placeholder)
+                .into(holder.imageView);
     }
 
     @Override

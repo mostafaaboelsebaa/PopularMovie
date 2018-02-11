@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class MovieDetails extends AppCompatActivity {
 
 
@@ -24,7 +26,12 @@ public class MovieDetails extends AppCompatActivity {
         * https://developer.android.com/reference/android/os/Parcelable.html*/
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();
+
         Movie movie=bundle.getParcelable(MovieAdapter.MOVIE_EXTRA_KEY );
+        Picasso.with(getBaseContext())
+                .load("http://image.tmdb.org/t/p/w185"+ movie.getPoster())
+                .placeholder(R.drawable.placeholder)
+                .into(poster);
         title.setText(movie.getTitle());
         releaseDate.setText(movie.getDate());
         overview.setText(movie.getOverview());
